@@ -9,6 +9,8 @@ document.querySelectorAll('ul > li').forEach(function (todo) {
 	todo.addEventListener('click', doubleClick);
 })
 
+// <img src='x' onerror='alert(1)'>
+
 // when we press a key in the input field: 
 // document.querySelector('input').addEventListener('keyup', click);
 
@@ -32,6 +34,8 @@ function toggleTodo(event) {
 }
 
 function doubleClick(e) {
+	// first click we strike through
+	// second click element is removed
 	const target = e.target;
 	if (!target.classList.contains('checked')) {
 		target.classList.add('checked');
@@ -47,7 +51,8 @@ function addTodo() {
 	console.log(input);
 	// we create an li tag
 	const todo = document.createElement('li');
-	todo.innerHTML = input;
+	todo.innerText = input;
+	todo.addEventListener('click', doubleClick);
 	console.log(todo);
 	// we add this to the list of todos
 	// access the list
